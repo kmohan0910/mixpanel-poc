@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+p {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 65px;
+    font-weight: 600;
+    text-align: center;
+    padding: 30vh 0px;
+}
+
+body {
+    // background-color: #5B8FB9 !important;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+
+}

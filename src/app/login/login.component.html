@@ -4,18 +4,24 @@
     <form [formGroup]="loginForm">
         <div class="row d-flex w-50">
             <h1 class="mt-5 m-auto p-5 text-center">Mix Panel Demo </h1>
-            <mat-form-field appearance="outline">
+
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" matInput formControlName="email" />
+            <!-- <mat-form-field appearance="fill">
                 <mat-label>Email</mat-label>
-                <input type="text" matInput formControlName="email" placeholder="Enter Email" />
-            </mat-form-field>
-            <mat-form-field appearance="outline">
+                <input type="text" matInput formControlName="email" />
+            </mat-form-field> -->
+            <label for="password">Password</label>
+            <input type="text" matInput formControlName="password" />
+            <!-- <mat-form-field appearance="fill">
                 <mat-label>Password</mat-label>
-                <input type="text" formControlName="password" matInput placeholder="Enter Password" />
-            </mat-form-field>
+                <input type="text" matInput formControlName="password" />
+            </mat-form-field> -->
 
             <button class="btn btn-primary w-50 m-auto" [disabled]="loginForm.invalid" (click)="login()">Login</button>
         </div>
-
+        <button class="btn btn-primary" (click)="login()">Redirect</button>
+        <button class="btn btn-primary logout" (click)="logout()">Logout</button>
     </form>
 
 </div>

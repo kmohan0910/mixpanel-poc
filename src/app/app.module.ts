@@ -8,22 +8,27 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { RouterModule, Routes } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './home/about/about.component';
-import { OverviewComponent } from './home/overview/overview.component';
-import { DevicesComponent } from './home/devices/devices.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DashboardComponent } from './home/dashboard/dashboard.component';
+import { AuthGuard } from './models/auth.guard';
+import { HttpClientModule } from '@angular/common/http';
 
 const UserRoutes: Routes = [
   {
     path: '',
+    pathMatch: 'full',
+    redirectTo: 'login',
+  },
+  {
+    path: 'login',
     component: LoginComponent,
     pathMatch: 'full',
+    // canActivate: [AuthGuard],
   },
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
+    canActivate: [AuthGuard],
   },
 ];
 @NgModule({
@@ -36,6 +41,8 @@ const UserRoutes: Routes = [
     MatInputModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
