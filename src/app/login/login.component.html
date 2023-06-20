@@ -1,0 +1,21 @@
+<div class="container-fluid">
+
+
+    <form [formGroup]="loginForm">
+        <div class="row d-flex w-50">
+            <h1 class="mt-5 m-auto p-5 text-center">Mix Panel Demo </h1>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input type="text" matInput formControlName="email" placeholder="Enter Email" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input type="text" formControlName="password" matInput placeholder="Enter Password" />
+            </mat-form-field>
+
+            <button class="btn btn-primary w-50 m-auto" [disabled]="loginForm.invalid" (click)="login()">Login</button>
+        </div>
+
+    </form>
+
+</div>
